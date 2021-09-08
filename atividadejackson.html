@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <title>Document</title>
+
+    <style>
+        body {
+
+            background-color: gray;
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <h3 class="text-center text-danger">
+
+                    Exercício Tabela
+
+
+                </h3>
+
+                <br>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <p>
+
+                    Este site serve para você anotar qualquer coisa, literalmente
+
+
+                </p>
+
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="segundaparte.html">Profile</a>
+                            </li>
+                            
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+
+                <input type="text" id="palavra"> <button type="button" class="btn btn-lg btn-block btn-danger"
+                    onclick="tela()" id="botao">
+
+
+                    Button
+
+                </button>
+
+                <input type="number" id="removeid" placeholder="Escreva o id para remover"> <button type="button"
+                    class="btn btn-lg btn-block btn-danger" onclick="deletar()">
+
+
+                    Remove
+
+            </div>
+
+        </div></button>
+
+        <script>
+
+
+            document.getElementById("palavra")
+
+                .addEventListener("keyup", function (event) {
+
+                    event.preventDefault();
+
+                    if (event.keyCode === 13) {
+
+                        document.getElementById("botao").click();
+
+                    }
+
+                });
+
+
+
+            var codigo = 0
+
+            var mostrar = ""
+
+            var mostrarcod = ""
+
+            var array = []
+
+
+
+
+
+            function tela() {
+
+                var palavra = document.getElementById("palavra").value
+
+                array[codigo] = palavra
+
+                mostrarcod = mostrarcod + codigo + "<br>"
+                mostrar = mostrar + palavra + "<BR>"
+
+                document.getElementById("palav").innerHTML = mostrar
+                document.getElementById("codigo").innerHTML = mostrarcod
+                document.getElementById("palavra").value = null
+                codigo++
+
+
+            }
+
+            function deletar() {
+
+                var iddeletar = document.getElementById("removeid").value
+                var antigocodigo = codigo
+                codigo = 0
+                mostrar = ""
+                mostrarcod = ""
+                var i = 0
+                var banido = []
+
+
+                while (i < antigocodigo) {
+
+                    if (i == iddeletar) {
+
+                        banido[i] = codigo
+
+                        array[i] = ""
+
+                        codigo++
+
+                        i++
+
+
+
+                    } else {
+
+                        if (array[i] != "") {
+
+                            mostrar = mostrar + array[i] + "<br>"
+                            mostrarcod += codigo + "<br>"
+                            codigo++
+                            i++
+                        } else { i++; codigo++ }
+
+                    }
+
+
+                }
+
+
+
+                document.getElementById("palav").innerHTML = mostrar
+
+                document.getElementById("codigo").innerHTML = mostrarcod
+
+
+
+            }
+
+
+
+
+        </script>
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <table class="table" id="tabela">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+
+                                Codigo
+
+
+                            </th>
+
+                            <th>
+
+                                Nome
+
+                            </th>
+
+                        <tr>
+
+                            <th id="codigo">
+
+
+
+                            </th>
+
+                            <th id="palav">
+
+
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+
+                    </tbody>
+
+                </table>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+
+</html>
